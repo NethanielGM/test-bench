@@ -14,8 +14,8 @@ connection.connect((err) => {
     }
     console.log('Connected to database.');
 });
-connection.query('SELECT * FROM panya_views WHERE insertTime >= now()-interval 3 month AND memberId > 0 ORDER BY insertTime DESC;', (error, results, fields) => {
+connection.query('SELECT * FROM panya_views WHERE insertTime >= now()-interval 3 month AND memberId > 0 ORDER BY insertTime DESC;', (error, result, fields) => {
     if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
+    console.log('The solution is: ', result);
 });
 connection.end();
