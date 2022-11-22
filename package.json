@@ -1,0 +1,15 @@
+{
+  "name": "json",
+  "version": "1.0.0",
+  "main": "Report_2022-11-22_11-32.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "mysql": "^2.18.1"
+  }
+}
