@@ -1,9 +1,10 @@
+require('dotenv').config()
 const mysql = require('mysql');
 const connection = mysql.createConnection({
-    host: "panya-prod-aurora-pub-appvpc-cluster.cluster-cqtaobysrz0v.eu-west-1.rds.amazonaws.com",
-    user: "root",
-    password: "92f9jc1BfPK3wnYn",
-    port: 3306
+    host: process.env.RDS_HOSTNAME,
+    user: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT
 });
 connection.connect((err) => {
     if (err) {
@@ -14,6 +15,6 @@ connection.connect((err) => {
 });
 connection.query('SELECT * FROM panya_views WHERE insertTime >= now()-interval 3 month AND memberId > 0 ORDER BY insertTime DESC', (error, results, fields) => {
     if (error) throw error;
-    console.log('The solution is: ', results);
+    console.log('The solution is: ', results[0].solution);
 });
 connection.end();
